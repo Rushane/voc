@@ -94,6 +94,13 @@ class FloatTests(TranspileTestCase):
             """
         code = '\n'.join(template.format(number) for number in numbers)
         self.assertCodeExecution(code)
+        
+    def test_multiply_str(self):
+       self.assertCodeExecution("""
+       x = " "
+       y = 0.0
+       print(x*y)
+       """)
 
 
 class UnaryFloatOperationTests(UnaryOperationTestCase, TranspileTestCase):
@@ -154,7 +161,6 @@ class InplaceFloatOperationTests(InplaceOperationTestCase, TranspileTestCase):
         'test_multiply_list',
         'test_multiply_NotImplemented',
         'test_multiply_range',
-        'test_multiply_str',
         'test_multiply_tuple',
 
         'test_power_complex',
