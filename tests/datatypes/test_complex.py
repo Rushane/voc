@@ -38,6 +38,14 @@ class ComplexTests(TranspileTestCase):
             print(x != y)
             print(y.__ne__(x))
             """)
+        
+    def test_eq_complex(self):
+        self.assertCodeExecution("""
+            x = complex(2, 3)
+            y = x.real+x.imag*1j
+            print(x == y)
+            print(x.__eq__(y))
+            """)
 
 
 class UnaryComplexOperationTests(UnaryOperationTestCase, TranspileTestCase):
@@ -77,7 +85,6 @@ class InplaceComplexOperationTests(InplaceOperationTestCase, TranspileTestCase):
         'test_eq_bytearray',
         'test_eq_bytes',
         'test_eq_class',
-        'test_eq_complex',
         'test_eq_dict',
         'test_eq_float',
         'test_eq_frozenset',

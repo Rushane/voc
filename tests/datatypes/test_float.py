@@ -97,11 +97,15 @@ class FloatTests(TranspileTestCase):
         
     def test_multiply_str(self):
        self.assertCodeExecution("""
-       x = " "
-       y = 0.0
-       print(x*y)
-       """)
-
+           x = " "
+           y = 0.0
+           try:
+               print(x*y)
+           except TypeError as err:
+                print(err)
+           
+            """)
+         
 
 class UnaryFloatOperationTests(UnaryOperationTestCase, TranspileTestCase):
     data_type = 'float'
